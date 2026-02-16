@@ -106,13 +106,13 @@ const sendEmail = async (e: React.FormEvent<HTMLFormElement>) => {
               <div className="bg-indigo-100 dark:bg-indigo-600 p-3 rounded-lg text-indigo-600 dark:text-white">
                 <Phone size={22} />
               </div>
-              <div>
+           /*   <div>
                 <h3 className="font-bold text-gray-900 dark:text-white">Phone</h3>
                 <p className="text-gray-600 dark:text-gray-300">
-                  +1 (803) 766-9690
+                 
                 </p>
               </div>
-            </div>
+            </div> */
 
             <div className="flex items-start space-x-4">
               <div className="bg-indigo-100 dark:bg-indigo-600 p-3 rounded-lg text-indigo-600 dark:text-white">
