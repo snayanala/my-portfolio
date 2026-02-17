@@ -1,51 +1,52 @@
 import React, { useState } from "react";
-import { Mail, MapPin, Phone, Send } from "lucide-react";
+import { Mail, MapPin, Send } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import emailjs from "@emailjs/browser";
 import confetti from "canvas-confetti";
 
 export const Contact = () => {
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
-const sendEmail = async (e: React.FormEvent<HTMLFormElement>) => {
-  e.preventDefault();
+  const [status, setStatus] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
 
-  const form = e.currentTarget; // ✅ store form safely
-  setStatus("loading");
+  const sendEmail = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
 
-  try {
-    const result = await emailjs.sendForm(
-      "service_m3lwfgr",
-      "template_yokqcwt",
-      form,
-      "e_8JBv3TJE7jmid6a"
-    );
+    const form = e.currentTarget;
+    setStatus("loading");
 
-    console.log("EmailJS SUCCESS:", result);
+    try {
+      const result = await emailjs.sendForm(
+        "service_m3lwfgr",
+        "template_yokqcwt",
+        form,
+        "e_8JBv3TJE7jmid6a"
+      );
 
-    setStatus("success");
+      console.log("EmailJS SUCCESS:", result);
 
-    form.reset(); // ✅ safe reset
+      setStatus("success");
+      form.reset();
 
-    confetti({
-      particleCount: 120,
-      spread: 80,
-      origin: { y: 0.6 },
-    });
+      confetti({
+        particleCount: 120,
+        spread: 80,
+        origin: { y: 0.6 },
+      });
 
-    setTimeout(() => setStatus("idle"), 4000);
-
-  } catch (error) {
-    console.log("EmailJS ERROR:", error);
-    setStatus("error");
-    setTimeout(() => setStatus("idle"), 4000);
-  }
-};
-
+      setTimeout(() => setStatus("idle"), 4000);
+    } catch (error) {
+      console.log("EmailJS ERROR:", error);
+      setStatus("error");
+      setTimeout(() => setStatus("idle"), 4000);
+    }
+  };
 
   return (
-    
-    <section  id="contact"
-    className="py-20 bg-white dark:bg-gray-900 transition-colors duration-500">
+    <section
+      id="contact"
+      className="py-20 bg-white dark:bg-gray-900 transition-colors duration-500"
+    >
       <div className="container mx-auto px-6 relative">
 
         {/* Toast Notifications */}
@@ -80,8 +81,9 @@ const sendEmail = async (e: React.FormEvent<HTMLFormElement>) => {
           </h2>
           <div className="w-20 h-1 bg-indigo-600 mx-auto rounded-full" />
           <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mt-6">
-            I'm currently looking for new opportunities. Whether you have a question or just want to say hi,
-            I'll try my best to get back to you!
+            I'm currently looking for new opportunities. Whether you have a
+            question or just want to say hi, I'll try my best to get back to
+            you!
           </p>
         </div>
 
@@ -90,36 +92,47 @@ const sendEmail = async (e: React.FormEvent<HTMLFormElement>) => {
           {/* LEFT SIDE - CONTACT INFO */}
           <div className="md:w-1/3 space-y-8">
 
+            {/* Email */}
             <div className="flex items-start space-x-4">
               <div className="bg-indigo-100 dark:bg-indigo-600 p-3 rounded-lg text-indigo-600 dark:text-white">
                 <Mail size={22} />
               </div>
               <div>
-                <h3 className="font-bold text-gray-900 dark:text-white">Email</h3>
+                <h3 className="font-bold text-gray-900 dark:text-white">
+                  Email
+                </h3>
                 <p className="text-gray-600 dark:text-gray-300">
                   nayanala2861@gmail.com
                 </p>
               </div>
             </div>
 
+            {/* Phone Section (Commented Out Safely) */}
+            {/*
             <div className="flex items-start space-x-4">
               <div className="bg-indigo-100 dark:bg-indigo-600 p-3 rounded-lg text-indigo-600 dark:text-white">
                 <Phone size={22} />
               </div>
-           /*   <div>
-                <h3 className="font-bold text-gray-900 dark:text-white">Phone</h3>
+              <div>
+                <h3 className="font-bold text-gray-900 dark:text-white">
+                  Phone
+                </h3>
                 <p className="text-gray-600 dark:text-gray-300">
-                 
+                  +1 XXX XXX XXXX
                 </p>
               </div>
-            </div> */
+            </div>
+            */}
 
+            {/* Location */}
             <div className="flex items-start space-x-4">
               <div className="bg-indigo-100 dark:bg-indigo-600 p-3 rounded-lg text-indigo-600 dark:text-white">
                 <MapPin size={22} />
               </div>
               <div>
-                <h3 className="font-bold text-gray-900 dark:text-white">Location</h3>
+                <h3 className="font-bold text-gray-900 dark:text-white">
+                  Location
+                </h3>
                 <p className="text-gray-600 dark:text-gray-300">
                   Columbia, South Carolina
                 </p>
@@ -196,3 +209,4 @@ const sendEmail = async (e: React.FormEvent<HTMLFormElement>) => {
     </section>
   );
 };
+
