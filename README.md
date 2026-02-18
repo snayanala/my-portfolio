@@ -69,13 +69,8 @@ National-level competition project involving large-scale data analysis and predi
 
 ## 📸 Preview
 
-(Add a screenshot here once deployed)
+<img width="1470" height="956" alt="image" src="https://github.com/user-attachments/assets/265b6086-609a-4ba8-b62a-3508e140e445" />
 
-You can add a screenshot like this:
-
-```md
-![Portfolio Screenshot](./screenshot.png)
-```
 
 ---
 
