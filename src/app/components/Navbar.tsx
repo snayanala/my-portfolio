@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence, useScroll, useSpring } from "motion/react";
+import { ThemeToggle } from "./ThemeToggle";
 
 const navLinks = [
   { name: "About", href: "#about" },
@@ -66,7 +67,7 @@ export const Navbar = () => {
           ref={navRef}
           className="container mx-auto px-6 flex justify-between items-center relative"
         >
-          {/* 🔥 Shrinking Logo */}
+          {/* Logo */}
           <motion.a
             href="#"
             animate={{ scale: scrolled ? 0.9 : 1 }}
@@ -76,8 +77,8 @@ export const Navbar = () => {
             Supriya Nayanala
           </motion.a>
 
-          {/* Desktop Links */}
-          <div className="hidden md:flex space-x-10 relative">
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-8 relative">
             {navLinks.map((link) => (
               <motion.a
                 key={link.name}
@@ -91,7 +92,6 @@ export const Navbar = () => {
               >
                 {link.name}
 
-                {/* 🔥 Floating Underline */}
                 {active === link.href && (
                   <motion.div
                     layoutId="underline"
@@ -100,9 +100,12 @@ export const Navbar = () => {
                 )}
               </motion.a>
             ))}
+
+            {/* 🌙 Theme Toggle */}
+            <ThemeToggle />
           </div>
 
-          {/* Mobile Toggle */}
+          {/* Mobile Menu Button */}
           <button
             className="md:hidden text-gray-900 dark:text-white"
             onClick={() => setIsOpen(!isOpen)}
@@ -132,6 +135,11 @@ export const Navbar = () => {
                     {link.name}
                   </a>
                 ))}
+
+                {/* Theme Toggle inside mobile */}
+                <div className="pt-4 border-t border-gray-200 dark:border-gray-700">
+                  <ThemeToggle />
+                </div>
               </div>
             </motion.div>
           )}
@@ -139,4 +147,4 @@ export const Navbar = () => {
       </motion.nav>
     </>
   );
-}; 
+};
