@@ -83,7 +83,7 @@ export const Contact = () => {
           <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mt-6">
             I'm currently looking for new opportunities. Whether you have a
             question or just want to say hi, I'll try my best to get back to
-            you!
+            you soon!
           </p>
         </div>
 

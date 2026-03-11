@@ -7,6 +7,8 @@ import { Projects } from "./components/Projects";
 import { Experience } from "./components/Experience";
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
+import Certifications from "./components/Certifications"; // Import Certifications component
+
 
 export default function App() {
   // Smooth scroll behavior for anchor links
@@ -26,7 +28,9 @@ export default function App() {
         <Skills />
         <Projects />
         <Experience />
+         <Certifications /> {/* Add Certifications section here */} 
         <Contact />
+       
       </main>
       <Footer />
     </div>
